@@ -7,3 +7,4 @@
 - **Security Compliance 📜**
 - **Incident Response 🚨**
 - **Security Automation 🤖**
+- **Application Security/ API  🚀**
