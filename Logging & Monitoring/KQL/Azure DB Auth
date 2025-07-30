@@ -1,0 +1,7 @@
+AzureDiagnostics
+| where Category == 'SQLSecurityAuditEvents'
+| where action_name_s has "DATABASE AUTHENTICATION"
+| parse additional_information_s with * "error_code>" Error_Code "<" *
+| parse additional_information_s with * "error_state>" Error_State "<" *
+| extend Reason=case(Error_Code == 40615, "IP Blocked by Firewall", Error_Code == 18456, "Bad Password/Username", Error_Code == 47073, "Public Network Access Denied", Error_Code)
+| summarize count() by ResourceGroup, LogicalServerName_s, database_name_s, username_entered=session_server_principal_name_s, client_hostname=host_name_s, client_ip_s, action_name_s, Reason
