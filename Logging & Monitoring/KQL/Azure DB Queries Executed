@@ -1,0 +1,4 @@
+AzureDiagnostics
+| where Category == 'SQLSecurityAuditEvents'
+| project TimeGenerated, statement_s, LogicalServerName_s, database_name_s, application_name_s, host_name_s, session_server_principal_name_s, client_ip_s, action_name_s
+| where isnotempty(statement_s)
