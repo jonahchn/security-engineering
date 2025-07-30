@@ -1,0 +1,9 @@
+AzureActivity
+| where Caller contains "@" and TimeGenerated >= ago(14d)
+| where Category == "Administrative"
+| summarize Current_Week = countif(TimeGenerated >= ago(7d)), Previous_Week = countif(TimeGenerated < ago(7d)) by Caller
+| where Current_Week > Previous_Week
+| extend growth = iif(Previous_Week != 0, toreal(Current_Week)/toreal(Previous_Week), toreal(Current_Week))
+| sort by growth desc nulls last
+| project User=Caller, Percent_Increased = toint(growth)
+| render piechart 
