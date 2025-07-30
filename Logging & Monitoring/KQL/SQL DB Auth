@@ -1,0 +1,7 @@
+Event
+| where Source contains "SQL"
+| where RenderedDescription startswith "Login"
+| parse RenderedDescription with * "Login " Authentication "for user '" User "'. " Detail ". [CLIENT: " UserIP "]" *
+| summarize count() by Computer, UserName, Authentication, UserIP, Detail
+| sort by count_
+
