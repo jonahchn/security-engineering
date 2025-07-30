@@ -1,4 +1,4 @@
-# Security Engineering 🛡️
+# Security Engineering
 
 - **Identity and Access Management (IAM) 🛡️**
 - **Network Security 🌐**
