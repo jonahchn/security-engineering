@@ -1,0 +1,10 @@
+//this is a techniques attackers use to hide the usage of commands on a system to avoid detection. While there are certainly methods to avoid even showing up on the commandline, the obfuscation technique used below is regularly used by various levels of attackers.
+//Below we will decode a base64 encoded string in the command line data and look for common PowerShell methods that are used in attacks.
+SecurityEvent
+| where TimeGenerated >= ago(30d)
+| where Process contains "powershell.exe" and CommandLine contains " -enc"
+| extend b64 = extract("[A-Za-z0-9|+|=|/]{30,}", 0,CommandLine)
+| extend utf8_decode=base64_decodestring(b64)
+| extend decode =  replace ("\x00","", utf8_decode)
+| where decode contains 'Gzip' or decode contains 'IEX' or decode contains 'Invoke' or decode contains '.MemoryStream' or decode contains '7zip' or decode contains 'LsaIso.exe'
+| summarize by Computer, Account, decode, CommandLine
