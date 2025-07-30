@@ -1,0 +1,4 @@
+Event
+| where Source contains "SQL"
+| where Source == "SQL_Query"
+| summarize by TimeGenerated, Computer, UserName, ["Query Executed"]=RenderedDescription
