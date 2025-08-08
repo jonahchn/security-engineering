@@ -2,7 +2,7 @@
 
 - **Identity and Access Management (IAM) 🛡️**
 - **Network Security 🌐**
-- **Data Encryption 🔐**
+- **Data Security/DLP 🔐**
 - **Logging and Monitoring 📊**
 - **Security Compliance 📜**
 - **Incident Response 🚨**
