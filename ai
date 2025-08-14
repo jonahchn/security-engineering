@@ -1,0 +1,18 @@
+Tool,Use Case,AI/ML Role,M-25-21 Alignment,FedRAMP Status,NIST CSF Function,Licensing Tier,SOC Deployment Priority,Typical SOC Integration Points
+Microsoft Defender for Cloud,Inventory Azure/AWS/GCP workloads,ML anomaly detection and risk scoring,High-impact AI identification and risk assessment,FedRAMP Moderate/High,Identify,E5,High,Cloud asset inventory, security posture dashboards
+Microsoft Sentinel,Security telemetry aggregation,ML-based UEBA and anomaly detection,AI system inventory & monitoring,FedRAMP High,Identify,E5,High,SIEM dashboards, correlation rules, threat hunting
+Microsoft Entra Permissions Management,IAM risk & entitlement mapping,AI-based privilege anomaly detection,Risk register and high-impact AI identification,FedRAMP Moderate,Identify,E5,Medium,Identity analytics, entitlement reviews
+Microsoft Defender for Identity,AD protection,AI behavioral analysis for lateral movement,Human-in-loop risk mitigation for identity systems,FedRAMP Moderate,Protect,E5,High,On-prem AD monitoring, alerting in SOC
+Microsoft Entra ID Protection,Identity protection,ML risk scoring for sign-ins,Continuous monitoring of AI-influenced access,FedRAMP Moderate,Protect,E5,High,Conditional Access alerts, SOC dashboards
+Microsoft Purview Information Protection,Data classification,AI auto-labeling & classification,Protect sensitive training data and AI input/output,FedRAMP Moderate/High,Protect,E5,Medium,Data classification dashboards, integration with DLP
+Microsoft Authenticator + Conditional Access,MFA & adaptive access,AI-based adaptive access decisions,High-impact AI authorization controls,FedRAMP Moderate,Protect,E3/E5,High,Conditional access events into SOC, MFA anomaly alerts
+Microsoft Defender for Endpoint,EDR,Behavioral ML detection (ransomware/zero-day),High-impact AI risk monitoring,FedRAMP Moderate,Detect,E5,High,Endpoint alerts, automated response playbooks
+Microsoft Defender XDR,Cross-domain detection,Correlation of identity/email/endpoint anomalies,SOC high-impact AI detection,FedRAMP Moderate,Detect,E5,High,XDR dashboards, SIEM correlation, automated mitigation
+Microsoft Defender for Office 365,Phishing & BEC,NLP + ML email analysis,AI-based detection controls,FedRAMP Moderate,Detect,E5,High,Email threat alerts, SOC investigation workflows
+Microsoft Security Copilot,SOC investigation,AI-assisted analysis & query generation,Human-in-loop SOC AI workflow,FedRAMP TBD,Detect/E5,Medium,Incident summaries, SOC analyst queries
+Microsoft Sentinel + SOAR,Automated response,ML-driven alert prioritization & playbook automation,Human-in-loop automated remediation for high-impact AI,FedRAMP High,Respond,E5,High,Automated response playbooks, integration with XDR alerts
+Microsoft Defender XDR,Automated mitigation,AI-driven containment of compromised endpoints/accounts,Risk-controlled AI action logging,FedRAMP Moderate,Respond,E5,High,Endpoint containment, SOC orchestration
+Microsoft Threat Experts,SOC augmentation,AI-assisted threat hunting & response,Supports AI risk oversight & mitigation,FedRAMP Moderate/High,Respond,E5,Medium,Threat hunting support, advisory alerts
+Microsoft Sentinel,Post-incident analysis,ML-assisted root cause & anomaly analysis,Feed lessons into AI risk register,FedRAMP High,Recover,E5,Medium,Incident review dashboards, ML analytics reports
+Microsoft Security Copilot,Incident summaries,AI-generated summaries & recommendations,Documentation for M-25-21 reporting,FedRAMP TBD,Recover,E5,Medium,Executive incident summaries, SOC reporting
+Microsoft Purview Insider Risk Management,Insider risk review,ML behavioral analysis for post-incident review,Update high-impact AI risk mitigations,FedRAMP Moderate,Recover,E5,Medium,Insider risk dashboards, post-incident reporting
