@@ -1,9 +1,22 @@
-$regKey = [Microsoft.Win32.RegistryKey]::OpenBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,
-                                                   [Microsoft.Win32.RegistryView]::Registry64)
+# Open the 64-bit registry view
+$regKey = [Microsoft.Win32.RegistryKey]::OpenBaseKey(
+    [Microsoft.Win32.RegistryHive]::LocalMachine,
+    [Microsoft.Win32.RegistryView]::Registry64
+)
+
+# Open the Defender key
 $subKey = $regKey.OpenSubKey("SOFTWARE\Microsoft\Windows Advanced Threat Protection")
+
 if ($subKey) {
-    $orgId = $subKey.GetValue("OrgId")
-    Write-Output "Defender OrgId: $orgId"
+    # Read the OnboardedInfo value
+    $onboardedInfoJson = $subKey.GetValue("OnboardedInfo")
+    if ($onboardedInfoJson) {
+        # Parse JSON and extract OrgId
+        $parsed = $onboardedInfoJson | ConvertFrom-Json
+        Write-Output "Defender Organization ID: $($parsed.OrgId)"
+    } else {
+        Write-Output "OnboardedInfo value not found."
+    }
 } else {
-    Write-Output "Registry key not found"
+    Write-Output "Registry key not found."
 }
