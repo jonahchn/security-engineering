@@ -1,0 +1,11 @@
+# Path where Defender for Endpoint stores onboarding info
+$regPath = "HKLM:\SOFTWARE\Microsoft\Windows Advanced Threat Protection"
+
+# Attempt to read the OrgId value
+try {
+    $orgId = Get-ItemProperty -Path $regPath -Name "OrgId" -ErrorAction Stop
+    Write-Output "Defender for Endpoint Organization ID: $($orgId.OrgId)"
+}
+catch {
+    Write-Output "Organization ID not found in registry path: $regPath"
+}
