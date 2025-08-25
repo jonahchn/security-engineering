@@ -1,1 +1,1 @@
-grep '"OrgId"' /etc/opt/microsoft/mdatp/mdatp_onboard.json | sed -E 's/.*"OrgId": ?"([^"]+)".*/\1/'
+cat /etc/opt/microsoft/mdatp/mdatp_onboard.json | head -n 1 | cut -c 1-200
